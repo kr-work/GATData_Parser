@@ -209,6 +209,10 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-DC1_GATData/
-DC3_GATData/
+DC_GATData/*
+!DC_GATData/.gitkeep
+DC3_GATData/*
+!DC3_GATData/.gitkeep
 !simulator.so
+# SQLite database files
+src/state_data.sqlite3

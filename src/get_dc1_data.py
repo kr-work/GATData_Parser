@@ -11,9 +11,17 @@ def get_match_data(data_dir: Path):
     team0_scores_data: list = [0] * 10
     team1_scores_data: list = [0] * 10
 
+    lines = []
+
     with open(data_dir, "r", encoding="utf-8") as file:
+        for i, line in enumerate(file):
+            try:
+                lines.append(line.strip())
+            except UnicodeDecodeError as e:
+                print(f"Decode error at line {i}: {e}")
+                pass
         
-        lines = [line.strip() for line in file]
+        # lines = [line.strip() for line in file]
 
     for line in lines:
         if line.startswith("["):
