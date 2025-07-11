@@ -3,6 +3,18 @@ from pprint import pprint
 from pathlib import Path
 
 def get_match_data(data_dir: Path):
+    """Parses the match data from a .dcl file.
+    Args:
+        data_dir (Path): The path to the .dcl file.
+    Returns:
+        list: A list of match data entries, each entry is a list containing:
+            - end (int): The end number.
+            - shot (int): The shot number.
+            - my_team_stones (list): List of stones for my team.
+            - opponent_team_stones (list): List of stones for the opponent team.
+            - my_team_scores (list): List of scores for my team.
+            - opponent_team_scores (list): List of scores for the opponent team.
+    """
     match_data: list = []
     shot: int = 0
     end: int = 0

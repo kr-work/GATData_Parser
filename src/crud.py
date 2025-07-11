@@ -2,16 +2,18 @@ from pprint import pprint
 
 from sqlalchemy.orm import Session
 from sqlalchemy import select
-from DataBase import StateData, Base
-from DataModel import StateDataModel
+from model.DataBase import StateData, Base
+from model.DataModel import StateDataModel
 from create_sqlite_engine import engine
 
 
 class CreateData:
+    """Handles the creation of state data in the database."""
     def __init__(self):
         pass
 
     def create_table(self):
+        """Creates the state data table if it does not exist."""
         try:
             Base.metadata.create_all(engine)
         except Exception as e:
@@ -26,6 +28,15 @@ class CreateData:
             my_team_scores: list,
             opponent_team_scores: list
     ):
+        """Creates a new state data entry in the database.
+        Args:
+            end (int): The end number.
+            shot (int): The shot number.
+            my_team_stones (list): List of stones for my team.
+            opponent_team_stones (list): List of stones for the opponent team.
+            my_team_scores (list): List of scores for my team.
+            opponent_team_scores (list): List of scores for the opponent team.
+        """
         self.create_table()
         try:
             with Session(engine) as session:
@@ -44,10 +55,18 @@ class CreateData:
 
 
 class ReadData:
+    """Handles reading state data from the database."""
     def __init__(self):
         pass
 
     def read_state_data(self, end: int, shot: int):
+        """Reads state data for a specific end and shot from the database.
+        Args:
+            end (int): The end number.
+            shot (int): The shot number.
+        Returns:
+            list: A list of StateDataModel instances containing the state data.
+        """
         try:
             with Session(engine) as session:
                 stmt = select(StateData).where(StateData.end == end, StateData.shot == shot)

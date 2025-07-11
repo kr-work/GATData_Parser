@@ -9,6 +9,18 @@ def get_specific_end_shot_data(
     end: int,
     shot: int,
 ):
+    """Parses the match data for a specific end and shot from a .dcl2 file.
+    Args:
+        data_dir (Path): The path to the .dcl2 file.
+        end (int): The end number.
+        shot (int): The shot number.
+    Returns:
+        tuple: A tuple containing:
+            - my_team_stones_data (list): List of stones for my team.
+            - opponent_stones_data (list): List of stones for the opponent team.
+            - my_team_scores_data (list): List of scores for my team.
+            - opponent_scores_data (list): List of scores for the opponent team.
+    """
     match_data: list = []
     with open(data_dir, "r", encoding="utf-8") as file:
         for line in file:

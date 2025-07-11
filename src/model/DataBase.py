@@ -1,6 +1,6 @@
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.schema import Column
-from sqlalchemy.types import Integer, Float, JSON
+from sqlalchemy.types import Integer, JSON
 
 
 class Base(DeclarativeBase):
