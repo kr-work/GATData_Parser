@@ -62,17 +62,17 @@ class DataManager:
 if __name__ == "__main__":
     data_manager = DataManager()
 
-    dir_path = Path(__file__).parents[1] / "DC3_GATData"
-    file_path_list = list(dir_path.glob("**/**/game.dcl2"))
-    for end in range(10):
-        for shot in range(16):
-            for file_path in file_path_list:
-                print(f"Processing file: {file_path}")
-                data_manager.store_dc3_data(file_path, end, shot)
+    # dir_path = Path(__file__).parents[1] / "DC3_GATData"
+    # file_path_list = list(dir_path.glob("**/**/game.dcl2"))
+    # for end in range(10):
+    #     for shot in range(16):
+    #         for file_path in file_path_list:
+    #             print(f"Processing file: {file_path}")
+    #             data_manager.store_dc3_data(file_path, end, shot)
 
-    dir_path = Path(__file__).parents[1] / "DC_GATData"
-    files_path = [p for p in dir_path.glob("**/*.dcl") if "!" not in str(p)]
-    for file_path in files_path:
-        print(f"Processing file: {file_path}")
-        data_manager.store_dc1_data(file_path)
+    # dir_path = Path(__file__).parents[1] / "DC_GATData"
+    # files_path = [p for p in dir_path.glob("**/*.dcl") if "!" not in str(p)]
+    # for file_path in files_path:
+    #     print(f"Processing file: {file_path}")
+    #     data_manager.store_dc1_data(file_path)
 

@@ -1,4 +1,3 @@
-import get_dc3_data
 from pprint import pprint
 
 from sqlalchemy.orm import Session
